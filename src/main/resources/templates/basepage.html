@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Messages</title>
+</head>
+<body>
+<button style="background-color: green"><a href="/add" style="color: white; text-decoration: none;"> Post Message </a></button> <br />
+
+<table>
+
+    <div style="border: 1px solid lightgreen" th:each="user :${users}" >
+
+        <p style="display: inline-block; text-transform: uppercase; color: darkslategray" th:text="${user.sentBy}"></p>
+        <p style="display: inline-block; color: darkslategray" th:text="${user.postedDate}"></p>
+        <h5 th:text="${user.content}"></h5>
+
+        <button style="background-color: orange"><a style="color: white; text-decoration: none;" th:href="@{updatemessage/{id} (id=${user.id})}"> Update</a></button>
+        <button style="background-color: blueviolet"><a style="color: white; text-decoration: none;" th:href="@{messagedetails/{id} (id=${user.id})}"> View </a></button>
+        <button style="background-color: darkred"><a style="color: white; text-decoration: none;" th:href="@{deletemessage/{id} (id=${user.id})}"> Delete</a></button>
+
+    </div>
+
+</table>
+
+</body>
+</html>

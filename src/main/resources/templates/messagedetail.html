@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Message Center</title>
+</head>
+<body>
+
+<button style="background-color:darkblue"><a href="/" style="color: white; text-decoration: none;">Show all Messages</a></button>
+<br />
+Message: <span th:text="${user.content}"></span><br />
+Posted Date: <span th:text="${user.posteddate}"></span><br />
+Posted By: <span th:text="${user.sentby}"></span><br />
+
+<button style="background-color: darkred"><a th:href="@{/deletemessage/{id} (id=${user.id})}" style="color: white; text-decoration: none;">Delete it</a> </button>
+</body>
+</html>

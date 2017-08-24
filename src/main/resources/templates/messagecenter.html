@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Message Center</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/post}" th:object="${user}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    Message: <textarea rows="4" th:field="*{content}" />
+    <span th:if="${#fields.hasErrors('content')}"
+          th:errors="*{content}"></span> <br />
+
+
+    Date Posted: <input type="date"  th:field="*{postedDate}" />
+    <span th:if="${#fields.hasErrors('postedDate')}"
+          th:errors="*{postedDate}"></span> <br />
+
+
+    Posted By: <input type="text" th:field="*{sentBy}" />
+    <span th:if="${#fields.hasErrors('sentBy')}"
+          th:errors="*{sentBy}"></span> <br />
+
+
+    <button type="submit" style="background-color: lightgreen; color: white;">POST</button>
+
+</form>
+
+</body>
+</html>
